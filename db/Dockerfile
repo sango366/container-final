@@ -31,10 +31,10 @@ COPY mysql_setup.sql /tmp/
 RUN mysqld_safe & sleep 5 && cat /tmp/mysql_setup.sql | mysql
 EXPOSE 3306
 
-# 7. 一般ユーザmyuserの作成およびmyuserでログイン
+# 7. 一般ユーザrepuserの作成およびrepuserでログイン
 RUN apt -y install sudo
-RUN useradd -s /bin/bash -G sudo -m myuser
-RUN echo "myuser:mypass" | chpasswd
+RUN useradd -s /bin/bash -G sudo -m repuser
+RUN echo "repuser:reppass" | chpasswd
 RUN echo "root:rootpass" | chpasswd
 
 # 8. 起動時コマンドの指定
