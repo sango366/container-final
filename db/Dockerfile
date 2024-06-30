@@ -1,7 +1,7 @@
 # 0. ubuntu:22.04をベースにする
 FROM ubuntu:22.04
 
-# 1. command_tutorialディレクトリをルートディレクトリに作成して
+# 1. container_finalディレクトリをルートディレクトリに作成して
 #    そのなかにfirstvi.txtを作成
 RUN mkdir /container_final
 RUN touch /container_final/firstvi.txt

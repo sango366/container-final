@@ -1,10 +1,10 @@
 # 0. ubuntu:22.04をベースにする
 FROM ubuntu:22.04
 
-# 1. command_tutorialディレクトリをルートディレクトリに作成して
+# 1. container_finalディレクトリをルートディレクトリに作成して
 #    そのなかにfirstvi.txtを作成
-RUN mkdir /command_tutorial
-RUN touch /command_tutorial/firstvi.txt
+RUN mkdir /container_final
+RUN touch /container_final/firstvi.txt
 
 # 2. viのインストール
 RUN apt update
@@ -45,7 +45,7 @@ RUN a2enmod proxy
 RUN a2enmod proxy_ajp
 RUN echo "ProxyPass / ajp://localhost:8009/" >> /etc/apache2/apache2.conf
 
-# 7. 一般ユーザmyuserの作成およびmyuserでログイン
+# 7. 一般ユーザrepuserの作成およびrepuserでログイン
 RUN apt -y install sudo
 RUN useradd -s /bin/bash -G sudo -m repuser
 RUN echo "repuser:reppass" | chpasswd
