@@ -1,10 +1,10 @@
 # 0. ubuntu:22.04をベースにする
 FROM ubuntu:22.04
 
-# 1. container_finalディレクトリをルートディレクトリに作成して
+# 1. command_tutorialディレクトリをルートディレクトリに作成して
 #    そのなかにfirstvi.txtを作成
-RUN mkdir /container_final
-RUN touch /container_final/firstvi.txt
+RUN mkdir /command_tutorial
+RUN touch /command_tutorial/firstvi.txt
 
 # 2. viのインストール
 RUN apt update
@@ -31,10 +31,10 @@ COPY mysql_setup.sql /tmp/
 RUN mysqld_safe & sleep 5 && cat /tmp/mysql_setup.sql | mysql
 EXPOSE 3306
 
-# 7. 一般ユーザrepuserの作成およびrepuserでログイン
+# 7. 一般ユーザmyuserの作成およびmyuserでログイン
 RUN apt -y install sudo
-RUN useradd -s /bin/bash -G sudo -m repuser
-RUN echo "repuser:reppass" | chpasswd
+RUN useradd -s /bin/bash -G sudo -m myuser
+RUN echo "myuser:mypass" | chpasswd
 RUN echo "root:rootpass" | chpasswd
 
 # 8. 起動時コマンドの指定
